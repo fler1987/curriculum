@@ -18,4 +18,10 @@ public class ParticipanteServiceImpl extends CRUDImpl<Participante, Integer> imp
 	protected IGenericRepo<Participante, Integer> getRepo() {
 		return repo;
 	}
+	
+	@Override
+	public Participante obtenerPorNombre(String nombres){
+		return repo.obtenerPorNombre(nombres);
+	}
+		
 }

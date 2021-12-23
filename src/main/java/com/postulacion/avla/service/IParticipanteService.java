@@ -4,6 +4,5 @@ import com.postulacion.avla.model.Participante;
 
 public interface IParticipanteService extends ICRUD<Participante, Integer> {
 	
-
-
+	 Participante obtenerPorNombre(String nombres);
 }

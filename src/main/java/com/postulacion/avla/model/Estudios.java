@@ -1,15 +1,10 @@
 package com.postulacion.avla.model;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Estudios {
@@ -18,9 +13,8 @@ public class Estudios {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@ManyToOne
-	@JoinColumn(name="id_participante", nullable = false, foreignKey = @ForeignKey(name="FK_estudios_participante"))
-	private Participante participante;
+	@Column(name="id_participante", nullable=false)
+	private Integer idParticipante;
 	
 	@Column(name="titulo_obtenido", length=250, nullable=false)
 	private String tituloObtenido;
@@ -29,7 +23,7 @@ public class Estudios {
 	private String institucion;
 	
 	@Column(name="duracion", length=200, nullable=true)
-	private LocalDateTime duracion;
+	private String duracion;
 	
 	@Column(name="estado", length=100, nullable=true)
 	private String estado;
@@ -42,12 +36,12 @@ public class Estudios {
 		this.id = id;
 	}
 
-	public Participante getParticipante() {
-		return participante;
+	public Integer getIdParticipante() {
+		return idParticipante;
 	}
 
-	public void setParticipante(Participante participante) {
-		this.participante = participante;
+	public void setIdParticipante(Integer participante) {
+		this.idParticipante = participante;
 	}
 
 	public String getTituloObtenido() {
@@ -66,11 +60,11 @@ public class Estudios {
 		this.institucion = institucion;
 	}
 
-	public LocalDateTime getDuracion() {
+	public String getDuracion() {
 		return duracion;
 	}
 
-	public void setDuracion(LocalDateTime duracion) {
+	public void setDuracion(String duracion) {
 		this.duracion = duracion;
 	}
 

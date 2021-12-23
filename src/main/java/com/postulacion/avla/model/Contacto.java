@@ -2,12 +2,9 @@ package com.postulacion.avla.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Contacto {
@@ -16,9 +13,8 @@ public class Contacto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@ManyToOne
-	@JoinColumn(name="id_participante", nullable = false, foreignKey = @ForeignKey(name="FK_contacto_participante"))
-	private Participante participante;
+	@Column(name="id_participante", nullable=false)
+	private Integer idParticipante;
 	
 	@Column(name="nombre", length=250, nullable=false)
 	private String nombre;
@@ -35,14 +31,14 @@ public class Contacto {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}	
+
+	public Integer getIdParticipante() {
+		return idParticipante;
 	}
 
-	public Participante getParticipante() {
-		return participante;
-	}
-
-	public void setParticipante(Participante participante) {
-		this.participante = participante;
+	public void setIdParticipante(Integer idParticipante) {
+		this.idParticipante = idParticipante;
 	}
 
 	public String getNombre() {

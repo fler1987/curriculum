@@ -1,5 +1,7 @@
 package com.postulacion.avla.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,4 +21,8 @@ public class ContactoServiceImpl extends CRUDImpl<Contacto, Integer> implements 
 		return repo;
 	}
 
+	@Override
+	public List<Contacto> listarPorIdParticipante(Integer id){
+		return repo.listarPorIdParticipante(id);
+	}
 }

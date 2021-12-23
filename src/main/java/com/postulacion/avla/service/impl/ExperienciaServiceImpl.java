@@ -1,5 +1,7 @@
 package com.postulacion.avla.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,11 @@ public class ExperienciaServiceImpl extends CRUDImpl<Experiencia, Integer> imple
 	@Override
 	protected IGenericRepo<Experiencia, Integer> getRepo() {
 		return repo;
+	}
+	
+	@Override
+	public List<Experiencia> listarPorIdParticipante(Integer id){
+		return repo.listarPorIdParticipante(id);
 	}
 
 }
